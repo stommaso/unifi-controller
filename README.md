@@ -81,7 +81,7 @@ reneg-sec 86400
 max-routes 1000
 route-nopull
 crl-verify /config/auth/<insert filename>.pem
-**ca /config/auth/<insert filename>.crt**
+ca /config/auth/<insert filename>.crt
 disable-occ
 ```
 
