@@ -1,0 +1,72 @@
+{
+    "firewall": {
+        "modify": {
+            "PBR_VPN": {
+                "rule": {
+                    "20": {
+                        "action": "modify",
+                        "description": "traffic from vlan 2 to VPN Tunnel",
+                        "modify": {
+                            "table": "2"
+                        },
+                        "source": {
+                            "address": "192.168.2.0/24"
+                        }
+                    }
+                }
+            }
+        },
+        "source-validation": "disable"
+    },
+    "interfaces": {
+        "ethernet": {
+            "eth1": {
+                "vif": {
+                    "2": {
+                        "firewall": {
+                            "in": {
+                                "modify": "PBR_VPN"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "openvpn": {
+            "vtun0": {
+                "config-file": "/config/auth/uk-london.ovpn",
+                "description": "OpenVPN Tunnel PIA"
+            }
+        }
+    },
+    "protocols": {
+        "static": {
+            "table": {
+                "2": {
+                    "interface-route": {
+                        "0.0.0.0/0": {
+                            "next-hop-interface": {
+                                "vtun0": "''"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "service": {
+        "nat": {
+            "rule": {
+                "5010": {
+                    "description": "OpenVPN Clients",
+                    "log": "disable",
+                    "outbound-interface": "vtun0",
+                    "source": {
+                        "address": "192.168.2.0/24"
+                    },
+                    "type": "masquerade"
+                }
+            }
+        }
+    }
+}
