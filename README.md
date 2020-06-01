@@ -65,7 +65,7 @@ opvn file should look like this:
 client
 dev tun
 proto udp
-**remote <insert vpn address>**
+remote <insert vpn address>
 resolv-retry infinite
 nobind
 persist-key
@@ -74,13 +74,13 @@ cipher aes-128-cbc
 auth sha1
 tls-client
 remote-cert-tls server
-**auth-user-pass /config/auth/credentials**
+auth-user-pass /config/auth/credentials
 comp-lzo
 verb 1
 reneg-sec 86400
 max-routes 1000
-**route-nopull**
-**crl-verify /config/auth/<insert filename>.pem**
+route-nopull
+crl-verify /config/auth/<insert filename>.pem
 **ca /config/auth/<insert filename>.crt**
 disable-occ
 ```
