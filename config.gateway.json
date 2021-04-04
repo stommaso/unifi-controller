@@ -34,7 +34,7 @@
         },
         "openvpn": {
             "vtun0": {
-                "config-file": "/config/auth/uk-london.ovpn",
+                "config-file": "/config/auth/uk_london.ovpn",
                 "description": "OpenVPN Tunnel PIA"
             }
         }
