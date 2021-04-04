@@ -53,7 +53,7 @@ shared-network-name net_PIA_LAN_eth1_192.168.2.0-24 {
 
 ### Installing
 
-Copy on USG under /config/auth:
+Copy on the USG under /config/auth:
 * crt
 * pem
 * credentials
@@ -93,6 +93,6 @@ disable-occ
 * Copy config.gateway.json
 * Go to the unifi controller UI
 * UniFi Devices > USG > Device > Manage > Trigger Provision
-* If the config is not applied for any reason. It's possible that there are some issue with the ovpn file. To check log into the USG and run the following command: cat /var/log/messages | grep openvpn
+* If, for any reason, the config is not applied, it's possible that there are some issues with the ovpn file. To check, log into the USG and run the following command: cat /var/log/messages | grep openvpn
 
 https://help.ui.com/hc/en-us/articles/215458888-UniFi-How-to-further-customize-USG-configuration-with-config-gateway-json
